@@ -1,0 +1,45 @@
+//CH - 230 - A
+//a10.p1.cpptxt
+// Nana Tsignadze
+//ntsignadze@jacobs-university.de
+
+In file -> testcritter.cpp
+
+After commenting out 'using namespace std;' such error messages occured that:
+
+"string was not declared in this scope" after commenting it out in "critter.cpp" as well.
+"cout was not declared in this scope"
+"cin was not declared in this scope"
+"endl was not declared in this scope"
+"name was not declared in this scope"
+"getline wasn't declared in this scope"
+
+
+F.E "cout was not declared in this scope"
+meaning that, without "using namespace std" cout object which refers to 
+the standart output in cpp is included in the std namespace similarly to cin, endl and string.
+thus, since the compiler couldn't recognize the cin, endl and cout objects in the given 
+code due to improper qualification, it lead us to a scope-reated error.
+
+name and getline aren't recognized because the cin object which is 
+used to input the 'name', is not decleared in current scope and also because of its inability to access the string type.
+
+getline couldn't be called because its arguments cin and name both are unrecognized.
+
+alternative is to write 'std::' in front of cin, cout, string, getline, string and endl.
+and for string recognition, header-#include <string>.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+after removing -> Critter ::
+
+the compiler expects print function as a part of class critter:: and when it's not written the compiler cannot identify print method and can't really
+access its properties. removing Critter :: makes the function looks like as if it's in global scope which results in a scope-related error.
+
+the alternative solution is to write Critter ::, name of the class to implement the funcion included in the previous file correctly.
+
+
+
+
+
+
